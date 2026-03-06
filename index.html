@@ -1,0 +1,192 @@
+<!-- version apolleux -->
+
+<!doctype html>
+<html lang="fr">
+  <style>        
+    .imagetr{
+      text-align: center;
+    }
+
+    button {
+      display: inline-block;
+      color: var(--text);
+      font-weight: 650;
+      position: relative;
+      text-decoration: none;
+      transition:
+        opacity 200ms var(--ease-in-out),
+        transform 220ms var(--ease-out);
+  
+    }
+
+    button:not(.chip)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.25rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      opacity: 0.35;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition:
+        transform 220ms var(--ease-out),
+        opacity 220ms var(--ease-in-out);
+    }
+
+    button:not(.chip):hover::after {
+      transform: scaleX(1);
+      opacity: 0.45;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+    /* Overlay */
+    .popup-overlay{
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.5);
+      justify-content:center;
+      align-items:center;
+    }
+    /* Popup box */
+    .popup-content{
+      background:white;
+      padding:25px;
+      border-radius:10px;
+      width:325px;
+      text-align:center;
+      position:relative;
+    }
+    /* Close button */
+    .close{
+      position:absolute;
+      right:15px;
+      top:10px;
+      font-size:20px;
+      cursor:pointer;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio de Hugo Villatte — développeur logiciel. Projets, technologies et contact."
+    />
+    <link rel="stylesheet" href="style/style.css"/>
+    <title>Hugo Villatte | Développeur logiciel</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>Hugo Villatte</h1>
+        <p class="subtitle">Développeur logiciel</p>
+        <p class="lead">
+          Développeur passionné, j’aime créer des produits simples, efficaces et
+          maintenables. J’accorde une attention particulière à la qualité du
+          code, aux performances et à l’accessibilité.
+        </p>
+
+        <div class="contact">
+          <a class="chip" href="https://github.com/Hhugaur" target="_blank" rel="noopener noreferrer"
+          >GitHub</a>
+
+          <a class="chip" href="https://fr.linkedin.com/in/hugo-villatte-9074403b3" target="_blank" rel="noopener noreferrer"
+          >LinkedIn</a>
+
+          <button id="openPopup" class="chip" style="cursor:pointer;"target="_blank" rel="noopener noreferrer">Contact</button>
+        </div>
+      </header>
+      <section class="projects">
+        <h2 style="font-size:  25px;">Projets</h2>
+        <ul class="project-list">
+          <li class="neu neu-flat">
+            <h4>MINISHELL</h4>
+            <img src="" alt="" />
+            <p>Reproduction de shell dans une version de poche en C.</p>
+            <a
+              class="project-link"
+              href="https://github.com/Hhugaur/minishell"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Voir plus</a
+            >
+          </li>
+          <li class="neu neu-flat">
+            <h4>FT_IRC</h4>
+            <img src="" alt="" />
+            <p>Créer un serveur IRC(Internet Relay Chat) en C++ 98 standard.</p>
+            <a class="project-link" href="https://github.com/Hhugaur/ft_irc"
+              target="_blank" rel="noopener noreferrer">Voir plus</a>
+          </li>
+          <li class="neu neu-flat">
+            <h4>FT_TRANSCENDENCE</h4>
+            <img src="" alt="" />
+            <p>
+              Création d'un site Web avec un système de connexion et le jeu
+              Pong. Frontend en Tailwind CSS et TypeScript. Backend en Fastify
+              et Node.js. Base de données en SQLite. J'ai fait le frontend du
+              site.
+            </p>
+            <div class="imagetr">
+                <a href="img/index_tr.png" target="_blank">
+                    <img  src="img/index_tr.png" width="200" height="100">
+                </a>
+                <a href="img/game_tr.png" target="_blank">
+                    <img src="img/game_tr.png" width="200" height="100">
+                </a>
+                <a href="img/profile_tr.png" target="_blank">
+                    <img src="img/profile_tr.png" width="200" height="100">
+                </a>
+            </div>
+            <a class="project-link" href="https://github.com/AntoineCaffard/Transcendence"
+              target="_blank" rel="noopener noreferrer">Voir plus
+            </a>
+          </li>
+          <!-- <li class="neu neu-flat">
+            <h4>CONTACT</h4>
+            <img src="" alt="" />
+            <p>Email : hugovillatte.24@gmail.com</p>
+            <p>Telephone : 0771648800</p>
+          </li> -->
+        </ul>
+      </section>
+    </main>
+    <div id="popup" class="popup-overlay">
+      <div class="popup-content">
+        <span id="closePopup" class="close">&times;</span>
+        <h2 style="margin-bottom: 5px;">Contact</h2>
+        <p>Téléphone : 07 71 64 88 00</p>
+        <p>Email : hugovillatte.24@gmail.com</p>
+      </div>
+    </div>
+    <script>
+      const popup = document.getElementById("popup");
+      const openBtn = document.getElementById("openPopup");
+      const closeBtn = document.getElementById("closePopup");
+
+      openBtn.onclick = () => {
+        popup.style.display = "flex";
+      };
+
+      closeBtn.onclick = () => {
+        popup.style.display = "none";
+      };
+
+      window.onclick = (e) => {
+        if(e.target === popup){
+          popup.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>

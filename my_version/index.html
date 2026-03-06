@@ -1,0 +1,176 @@
+<!-- version huvillat -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <style>
+    /* *{
+      color: #000000;
+    } */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;  
+      background: #19599e;
+      color: #000000;
+      text-align: center;
+    }
+    section {
+      padding: 40px 20px;
+      /* max-width: 800px; */
+      margin: auto;
+    }
+    .difftext{
+      text-align:left;
+      text-decoration: underline;
+    }
+    .header {
+      background: white;
+      margin: 15px 0;
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid black;
+      /* box-shadow:10px 10px rgba(0,0,0,0.1); */
+    }
+    .project {
+      background: white;
+      margin: 15px 0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border: 1px solid grey;
+    }
+    footer {
+      background: #0f0f0f;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    a {
+      /* view project */
+      color: #19599e;
+      text-decoration: none;
+    }
+    .buttona{
+      color: cadetblue;
+      text-decoration: none;
+      box-shadow:2px 2px rgba(0,0,0,0.1);
+      padding: 0.3rem;
+      background-color: aliceblue;
+    }
+    </style>
+    <!-- flex -->
+    <style>
+    .container {
+      display: flex;
+      gap: 20px;
+      /* flex-direction: row; */
+    }
+    .first {
+      /* about me */
+      flex: 1;
+      align-self: center;
+    }
+    .second {
+      /* central page */
+       flex: 2;
+       margin-right: 5%;
+    }
+    .about{
+      background-color: white;
+      border-radius: 8px;
+      border: 2px solid black;
+    }
+  </style>
+  <!-- responsive -->
+  <style>
+    @media (max-width: 1200px)
+    {
+      .container {
+        /* display: flex; */
+        flex-direction: column-reverse;
+      }
+      .first{
+        /* about me */
+        flex: 1;
+      }
+      .second{
+        flex: 2;
+        margin-right: 0;
+      }
+    }
+  </style>
+  <!-- small modification -->
+  <style>
+    .reducmargin {
+      margin-bottom:-10px;
+    }
+    .addmargin {
+      margin-bottom:20px;
+    }
+    .imagemargin{
+      margin-bottom:10px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="container">
+  <!-- first box -->
+  <div class="about first">
+    <h2 class="difftext">À Propos</h2>
+    <p>
+      I'm a passionate developer who enjoys building clean and user-friendly websites.
+    </p>
+  </div>
+  <!-- second box -->
+  <div class="header second">
+    <h1 class="reducmargin">Hugo Villatte</h1>
+    <p class="addmargin">Développeur logiciel</p>
+    <h2 class="difftext">Projects :</h2>
+    <div class="project">
+      <h3>FT_TRANSCENDENCE</h3>
+      <p>Création d'un site Web avec un système de connexion et le jeu Pong. 
+  Frontend en Tailwind CSS et TypeScript. Backend en Fastify et Node.js. 
+  Base de données en SQLite. J'ai fait le frontend du site.</p>
+      <div class="imagemargin">
+        <a href="img/index_tr.png" target="_blank">
+          <img  src="img/index_tr.png" width="200" height="100">
+        </a>
+        <a href="img/game_tr.png" target="_blank">
+          <img src="img/game_tr.png" width="200" height="100">
+        </a>
+        <a href="img/profile_tr.png" target="_blank">
+          <img src="img/profile_tr.png" width="200" height="100">
+        </a>
+      </div>
+      <a class="buttona" href="https://github.com/AntoineCaffard/Transcendence">View Project</a>
+    </div>
+
+    <div class="project">
+      <h3>MINISHELL</h3>
+      <p>Reproduction de shell dans une version de poche en C.</p>
+      <a class="buttona" href="https://github.com/Hhugaur/minishell">View Project</a>
+    </div>
+
+    <div class="project">
+      <h3>FT_IRC</h3>
+      <p>Créer un serveur IRC(Internet Relay Chat) en C++ 98 standard. </p>
+      <a class="buttona" href="https://github.com/Hhugaur/ft_irc">View Project</a>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <h2>Contact</h2>
+    <p>Email: hugovillatte.24@gmail.com</p>
+  <p>
+    <a href="https://github.com/Hhugaur">GitHub</a>
+    |
+    <a href="https://fr.linkedin.com/in/hugo-villatte-9074403b3">LinkedIn</a>
+  </p>
+</footer>
+
+</body>
+</html>

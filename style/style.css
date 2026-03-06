@@ -1,0 +1,340 @@
+/* version apolleux */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --bg: #e8ecf3;
+  --surface: #e8ecf3;
+  --text: #0b1220;
+  --muted: #516079;
+  --accent: #2563eb;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow-dark: rgba(163, 177, 198, 0.55);
+  --shadow-light: rgba(255, 255, 255, 0.9);
+  --shadow-out:
+    12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
+  --shadow-out-strong:
+    16px 16px 34px var(--shadow-dark), -16px -16px 34px var(--shadow-light);
+  --shadow-in:
+    inset 10px 10px 22px var(--shadow-dark),
+    inset -10px -10px 22px var(--shadow-light);
+  --hairline: rgba(11, 18, 32, 0.06);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes soft-pop {
+  from {
+    transform: scale(0.985);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(
+      900px 700px at 20% 10%,
+      rgba(255, 255, 255, 0.6),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 600px at 90% 25%,
+      rgba(255, 255, 255, 0.5),
+      transparent 55%
+    ),
+    var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  animation: enter-up 700ms var(--ease-out) both;
+}
+
+.page {
+  width: min(980px, 100%);
+  margin-inline: auto;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.hero > h1 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: -0.03em;
+  animation: enter-up 700ms var(--ease-out) both;
+  animation-delay: 40ms;
+}
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  color: var(--muted);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  animation: enter-up 700ms var(--ease-out) both;
+  animation-delay: 120ms;
+}
+
+.lead {
+  max-width: 68ch;
+  color: var(--muted);
+  line-height: 1.55;
+  animation: enter-up 700ms var(--ease-out) both;
+  animation-delay: 170ms;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
+  animation: enter-up 700ms var(--ease-out) both;
+  animation-delay: 220ms;
+}
+
+.neu {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-out);
+  padding: 1.5rem 1.6rem;
+}
+
+.neu-concave {
+  box-shadow: var(--shadow-in);
+}
+
+.neu-flat {
+  box-shadow:
+    10px 10px 20px var(--shadow-dark),
+    -10px -10px 20px var(--shadow-light);
+}
+
+#about-me {
+  display: grid;
+  gap: 0.6rem;
+  animation: enter-up 700ms var(--ease-out) both;
+  animation-delay: 200ms;
+  transition:
+    transform 220ms var(--ease-out),
+    box-shadow 300ms var(--ease-in-out);
+}
+
+#about-me:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-out);
+}
+
+.projects {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.projects > h2,
+#about-me > h2 {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.01em;
+  font-size: 1.15rem;
+  animation: enter-up 700ms var(--ease-out) both;
+  animation-delay: 260ms;
+}
+
+#about-me > p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.project-list > li {
+  font-family: "Montserrat", sans-serif;
+  display: grid;
+  gap: 0.7rem;
+  transform: translateY(0);
+  transition:
+    transform 220ms var(--ease-out),
+    box-shadow 300ms var(--ease-in-out),
+    border-color 300ms var(--ease-in-out);
+  animation:
+    enter-up 700ms var(--ease-out) both,
+    soft-pop 700ms var(--ease-out) both;
+  will-change: transform;
+}
+
+.project-list > li:hover {
+  transform: translateY(-6px);
+  border-color: rgba(11, 18, 32, 0.09);
+  box-shadow: var(--shadow-out-strong);
+}
+
+.project-list > li:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-in);
+}
+
+.project-list > li > h4 {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.01em;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.project-list > li > p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.project-list > li:nth-of-type(1) {
+  animation-delay: 320ms;
+}
+.project-list > li:nth-of-type(2) {
+  animation-delay: 400ms;
+}
+.project-list > li:nth-of-type(3) {
+  animation-delay: 480ms;
+}
+
+a {
+  display: inline-block;
+  color: var(--text);
+  font-weight: 650;
+  position: relative;
+  text-decoration: none;
+  transition:
+    opacity 200ms var(--ease-in-out),
+    transform 220ms var(--ease-out);
+}
+
+a:not(.chip)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.35;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    transform 220ms var(--ease-out),
+    opacity 220ms var(--ease-in-out);
+}
+
+a:not(.chip):hover::after {
+  transform: scaleX(1);
+  opacity: 0.45;
+}
+
+a:hover {
+  transform: translateY(-1px);
+}
+
+.chip {
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  box-shadow:
+    8px 8px 18px var(--shadow-dark),
+    -8px -8px 18px var(--shadow-light);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+
+.chip:hover {
+  box-shadow: var(--shadow-out);
+}
+
+.project-link {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(11, 18, 32, 0.22);
+  outline-offset: 4px;
+}
+
+.project-list > li > img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(163, 177, 198, 0.25)
+  );
+  border: 1px solid var(--hairline);
+}
+
+.project-list > li > img[src=""] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .neu {
+    padding: 1.2rem 1.15rem;
+  }
+  .project-list > li > img {
+    height: 150px;
+  }
+}
